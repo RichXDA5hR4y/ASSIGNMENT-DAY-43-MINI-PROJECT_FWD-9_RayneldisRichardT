@@ -1,0 +1,169 @@
+/* Reset Dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #141414; /* Warna Background Khas Netflix */
+  color: #ffffff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #000; /* Header lebih gelap */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.header h1 {
+  color: #e50914; /* Merah ala Netflix */
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.header nav li {
+  cursor: pointer;
+  color: #e5e5e5;
+  transition: color 0.3s;
+}
+
+.header nav li:hover {
+  color: #fff;
+  font-weight: bold;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  padding: 40px;
+  min-height: 80vh;
+}
+
+.section-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* GRID LAYOUT (Responsive) */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+/* MOVIE CARD & INTERACTIVITY */
+.movie-card {
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Kunci Animasi */
+  cursor: pointer;
+}
+
+/* Efek Hover (Interaktif) */
+.movie-card:hover {
+  transform: scale(1.05); /* Membesar sedikit saat di-hover */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.movie-poster {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay Play Button saat Hover */
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+.play-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.movie-info {
+  padding: 15px;
+}
+
+.movie-info h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.rating {
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.rating.green { background-color: #46d369; }
+.rating.orange { background-color: #ffa500; }
+.rating.red { background-color: #f44336; }
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #000;
+  color: #757575;
+  font-size: 14px;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+}
